@@ -1,0 +1,296 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Warm Vintage Detective Reference Palette */
+  --color-main-bg: #100d08;
+  --color-sidebar-bg: #17130e;
+  --color-card-dark: #241b11;
+  --color-parchment-cream: #ebdcb7;
+  --color-gold-accent: #c9a15b;
+  --color-text-ivory: #e8dcc0;
+  --color-text-muted: #b3a184;
+  --color-text-espresso: #17130e;
+
+  --color-charcoal-950: #100d08;
+  --color-charcoal-900: #17130e;
+  --color-charcoal-850: #1c150e;
+  --color-charcoal-800: #241b11;
+  
+  --color-espresso-950: #100d08;
+  --color-espresso-900: #17130e;
+  --color-espresso-850: #1c150e;
+  --color-espresso-800: #241b11;
+  --color-espresso-700: #33261a;
+  --color-espresso-600: #463525;
+  --color-espresso-500: #5c4733;
+
+  --color-parchment-50: #faf6eb;
+  --color-parchment-100: #f4ecda;
+  --color-parchment-200: #ebdcb7;
+  --color-parchment-300: #dfcca0;
+  --color-parchment-400: #d0b885;
+  --color-parchment-500: #bc9e65;
+
+  --color-ink-950: #100d08;
+  --color-ink-900: #17130e;
+  --color-ink-800: #241b11;
+  --color-ink-700: #33261a;
+  --color-ink-600: #463525;
+
+  --color-gold-500: #b8860b;
+  --color-gold-400: #c9a15b;
+  --color-gold-300: #d8b775;
+  --color-gold-200: #e8d098;
+  --color-gold-100: #f4e5c2;
+
+  --color-ivory: #e8dcc0;
+  --color-beige-200: #f4ecda;
+  --color-beige-300: #e8dcc0;
+  --color-beige-400: #b3a184;
+  --color-beige-500: #8c7b64;
+
+  --color-forensic-red: #9e2a2b;
+  --color-forensic-crimson: #851e1f;
+  --color-forensic-bright: #c53030;
+  --color-forensic-emerald: #2d6a4f;
+  --color-forensic-green: #387656;
+
+  /* Backward Compatibility Theme Aliases Mapped to Warm Noir Tones */
+  --color-navy-950: #100d08;
+  --color-navy-900: #17130e;
+  --color-navy-850: #1c150e;
+  --color-navy-800: #241b11;
+  --color-navy-700: #33261a;
+  --color-navy-600: #463525;
+  --color-navy-500: #5c4733;
+  --color-amber-500: #b8860b;
+  --color-amber-400: #c9a15b;
+  --color-amber-300: #d8b775;
+  --color-amber-200: #ebdcb7;
+  --color-red-500: #9e2a2b;
+  --color-red-400: #b83a3b;
+  --color-green-400: #387656;
+  --color-emerald-400: #2d6a4f;
+  --color-slate-200: #f4ecda;
+  --color-slate-300: #e8dcc0;
+  --color-slate-400: #b3a184;
+  --color-slate-500: #8c7b64;
+  --color-slate-600: #6b5c49;
+  --color-white: #fcf9f0;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
+  --font-display: var(--font-display);
+}
+
+/* ── Base Reset & Typography ──────────────────────────────── */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #100d08;
+  color: #e8dcc0;
+  font-family: var(--font-sans);
+  min-height: 100dvh;
+}
+
+/* Headings font */
+h1, h2, h3, .font-editorial {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* ── Warm Vintage Atmosphere & Paper Texture ──────────────── */
+.vintage-atmosphere {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background-image:
+    radial-gradient(ellipse 80% 80% at 50% 15%, rgba(201, 161, 91, 0.03) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 60% at 85% 85%, rgba(184, 134, 11, 0.02) 0%, transparent 60%);
+}
+
+.vintage-vignette {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 46;
+  box-shadow: inset 0 0 120px rgba(16, 13, 8, 0.8), inset 0 0 50px rgba(10, 8, 5, 0.95);
+}
+
+/* ── Parchment Case File & Confidential Dossier ────────────── */
+.parchment-sheet {
+  background: linear-gradient(180deg, #faf4e6 0%, #ebdcb7 60%, #dfcca0 100%);
+  color: #17130e;
+  border: 1px solid #c5b48e;
+  box-shadow:
+    0 1px 2px rgba(255, 255, 255, 0.7) inset,
+    0 12px 36px -4px rgba(16, 13, 8, 0.6),
+    0 4px 12px -2px rgba(16, 13, 8, 0.4);
+}
+
+.parchment-card-light {
+  background: linear-gradient(180deg, #fdfbf7 0%, #f4ecda 100%);
+  color: #17130e;
+  border: 1px solid #d5c49f;
+  box-shadow: 0 4px 16px rgba(16, 13, 8, 0.3);
+}
+
+.confidential-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  border: 2px solid #9e2a2b;
+  color: #9e2a2b;
+  background: rgba(158, 42, 43, 0.07);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  transform: rotate(-1.5deg);
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(158, 42, 43, 0.25);
+  user-select: none;
+}
+
+.confidential-stamp-sm {
+  padding: 0.15rem 0.5rem;
+  border: 1.5px solid #9e2a2b;
+  color: #9e2a2b;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transform: rotate(-1deg);
+  border-radius: 3px;
+}
+
+.cataloged-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border: 1.5px solid #2d6a4f;
+  color: #2d6a4f;
+  background: rgba(45, 106, 79, 0.1);
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transform: rotate(1deg);
+  border-radius: 3px;
+}
+
+/* ── Dark Espresso Container Cards ────────────────────────── */
+.espresso-panel {
+  background: linear-gradient(180deg, #241b11 0%, #17130e 100%);
+  border: 1px solid #33261a;
+  color: #e8dcc0;
+  box-shadow: 0 10px 30px -5px rgba(10, 8, 5, 0.75);
+}
+
+.espresso-panel-highlight {
+  background: linear-gradient(180deg, #2a1f14 0%, #1c150e 100%);
+  border: 1px solid rgba(201, 161, 91, 0.4);
+  color: #e8dcc0;
+  box-shadow: 0 12px 32px -4px rgba(10, 8, 5, 0.8), 0 0 15px rgba(201, 161, 91, 0.1);
+}
+
+/* ── Gold Accents & Dividers ──────────────────────────────── */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 161, 91, 0.4), transparent);
+}
+
+.parchment-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(94, 74, 57, 0.35), transparent);
+}
+
+/* ── Glow & Pulsing Effects ───────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.65; }
+  50%      { opacity: 1; }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* ── Fade-in ──────────────────────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* ── Scrollbars ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: #17130e; }
+::-webkit-scrollbar-thumb { background: #33261a; border-radius: 3px; border: 1px solid #241b11; }
+::-webkit-scrollbar-thumb:hover { background: #c9a15b; }
+
+/* ── Hotspot radar pulse ──────────────────────────────────── */
+@keyframes hotspot-ping {
+  0%   { transform: scale(1); opacity: 0.75; }
+  70%  { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+.hotspot-ring {
+  animation: hotspot-ping 2s cubic-bezier(0,0,0.2,1) infinite;
+}
+
+/* ── Evidence board connector lines ───────────────────────── */
+.connector-line {
+  background: linear-gradient(90deg, transparent, #c9a15b, transparent);
+  height: 1px;
+}
+
+/* ── Floating dust motes (Warm Candlelight / Lamp Glow) ────── */
+@keyframes float-dust {
+  0%   { transform: translateY(0px) translateX(0px); opacity: 0.1; }
+  50%  { transform: translateY(-24px) translateX(10px); opacity: 0.6; }
+  100% { transform: translateY(-48px) translateX(-5px); opacity: 0; }
+}
+.animate-dust-1 {
+  animation: float-dust 9s ease-in-out infinite;
+}
+.animate-dust-2 {
+  animation: float-dust 13s ease-in-out 3s infinite;
+}
+.animate-dust-3 {
+  animation: float-dust 11s ease-in-out 6s infinite;
+}
+
+/* ── Reduced motion accessibility ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Cinematic Slow Camera Movement ───────────────────────── */
+@keyframes slow-camera-breathe {
+  0% {
+    transform: scale(1) translate(0%, 0%);
+  }
+  33% {
+    transform: scale(1.04) translate(-0.7%, -0.5%);
+  }
+  66% {
+    transform: scale(1.03) translate(0.5%, -0.8%);
+  }
+  100% {
+    transform: scale(1) translate(0%, 0%);
+  }
+}
+.animate-slow-camera {
+  animation: slow-camera-breathe 28s ease-in-out infinite;
+  transform-origin: 30% 50%;
+}
